@@ -36,7 +36,7 @@ net.divideParam.testRatio = 25/100;
 
 % Choose a Performance Function
 % For a list of all performance functions type: help nnperformance
-net.performFcn = 'mse';  % Mean Squared Error
+net.performFcn = 'crossentropy';  % Mean Squared Error
 
 % Choose Plot Functions
 % For a list of all plot functions type: help nnplot

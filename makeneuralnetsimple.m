@@ -27,7 +27,7 @@ net.divideParam.valRatio = 25/100;
 net.divideParam.testRatio = 25/100;
 
 % Train the Network
-[net,tr] = train(net,x,t);
+[net,tr] = train(net,double(x),t);
 
 % Test the Network
 y = net(x);
