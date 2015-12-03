@@ -6,7 +6,7 @@
 %
 %   newTrainData - input data.
 %   label - target data.
-
+clc;
 x = newTrainData;
 t = label;
 
@@ -36,7 +36,7 @@ net.divideParam.testRatio = 25/100;
 
 % Choose a Performance Function
 % For a list of all performance functions type: help nnperformance
-net.performFcn = 'crossentropy';  % Cross-Entropy
+net.performFcn = 'mse';  % Mean Squared Error
 
 % Choose Plot Functions
 % For a list of all plot functions type: help nnplot
@@ -44,7 +44,7 @@ net.plotFcns = {'plotperform','plottrainstate','ploterrhist', ...
     'plotconfusion', 'plotroc'};
 
 % Train the Network
-[net,tr] = train(net,x,t);
+[net,tr] = train(net,double(x),t);
 
 % Test the Network
 y = net(x);
@@ -61,10 +61,10 @@ testTargets = t .* tr.testMask{1};
 trainPerformance = perform(net,trainTargets,y)
 valPerformance = perform(net,valTargets,y)
 testPerformance = perform(net,testTargets,y)
-
+plotregression(t,y,'Regression')
 % View the Network
 view(net)
-
+perf  = perform(net,t,y);
 % Plots
 % Uncomment these lines to enable various plots.
 %figure, plotperform(tr)
