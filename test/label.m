@@ -1,0 +1,1 @@
+light_label = [ ones(1,15) zeros(1,15);  zeros(1,15) ones(1,15)];
